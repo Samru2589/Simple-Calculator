@@ -1,0 +1,59 @@
+# Q.1) Make web application of simple Calculator with some operations 
+# Solution:  Make Calculator
+
+# Make user defined function
+def Calculator(a, b, operation):
+    if operation == "+":
+        print("The addition of a and b is:", a + b)
+    elif operation == "-":
+        print("The subtraction of a and b is:", a - b)
+    elif operation == "*":
+        print("The multiplication of a and b is:", a * b)
+    elif operation == "/":
+        if b != 0:
+            print("The division of a and b is:", a / b)
+        else:
+            print("Error: Division by zero is not allowed!")
+    else:
+        print("The operation doesn't happen")
+
+# Streamlit app
+
+import streamlit as st 
+
+# Give title to the app
+st.title(f"Calculator")
+st.header("My first python project")
+
+# Display an image using markdown
+
+st.markdown(
+    r"![Calculator](https://w7.pngwing.com/pngs/724/729/png-transparent-calculator-calculator-electronics-calculator-technology-thumbnail.png)",
+
+    unsafe_allow_html=True
+)
+
+
+a = st.number_input("Enter the first number is")
+b = st.number_input("Enter the second number is")
+
+# An Operation 
+Operation = st.selectbox("Choose an operation", ["+", "-", "*", "/"])
+st.write(f"You selected: {Operation}")
+
+  
+  # Set a button
+if st.button("Calculate"):
+    if Operation == "+":
+        st.success(f"# The result is: {a + b}")
+    elif Operation == "-":
+        st.success(f"# The result is: {a - b}")
+    elif Operation == "*":
+        st.success(f"# The result is: {a * b}")
+    elif Operation == "/":
+        if b != 0:
+            st.success(f"# The result is: {a / b}")
+        else:
+            st.error("# Error: Division by zero is not allowed!")
+  
+
